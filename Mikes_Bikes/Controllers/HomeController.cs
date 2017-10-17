@@ -26,5 +26,10 @@ namespace Mikes_Bikes.Controllers
 
             return View();
         }
+
+        public ActionResult ReturnPolicy()
+        {
+            return View();
+        }
     }
 }
