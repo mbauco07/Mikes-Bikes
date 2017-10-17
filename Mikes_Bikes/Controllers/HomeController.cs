@@ -26,5 +26,12 @@ namespace Mikes_Bikes.Controllers
 
             return View();
         }
+
+        public ActionResult Careers()
+        {
+            ViewBag.Message = "Your careers page.";
+
+            return View();
+        }
     }
 }
