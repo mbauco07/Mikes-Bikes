@@ -15,14 +15,14 @@ namespace Mikes_Bikes.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Mikes Bikes";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Connect With Us Beyond the Store!";
 
             return View();
         }
