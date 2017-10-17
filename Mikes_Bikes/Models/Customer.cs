@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
-namespace MikesBikes.Models
+namespace Mikes_Bikes.Models
 {
     public class Customer
     {
-        public int CustID { get; set; }
+        public int CustomerID { get; set; }
         public string CustFName { get; set; }
         public string CustLName { get; set; }
         public string CustEmail { get; set; }

@@ -4,14 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
-namespace MikesBikes.Models
+namespace Mikes_Bikes.Models
 {
     public class Cart
     {
-        public string CustID { get; set; }
+        public int CartID { get; set; }
+        public int CustomerID { get; set; }
         public string BikeID { get; set; }
         public int Quantity { get; set; }
         public double Price { get; set; }
+
+        public virtual Customer Customer { get; set; }
+        public virtual Bike Bike { get; set; }
+
     }
 
 }

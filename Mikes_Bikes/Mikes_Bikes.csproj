@@ -147,14 +147,43 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BikesController.cs" />
+    <Compile Include="Controllers\CartsController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\DetailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\RatingsController.cs" />
+    <Compile Include="DAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710171450419_InitialCreate.cs" />
+    <Compile Include="Migrations\201710171450419_InitialCreate.Designer.cs">
+      <DependentUpon>201710171450419_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710171508341_CustomerIDPrimaryKey.cs" />
+    <Compile Include="Migrations\201710171508341_CustomerIDPrimaryKey.Designer.cs">
+      <DependentUpon>201710171508341_CustomerIDPrimaryKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710171512262_AddedDetailPrimaryKey.cs" />
+    <Compile Include="Migrations\201710171512262_AddedDetailPrimaryKey.Designer.cs">
+      <DependentUpon>201710171512262_AddedDetailPrimaryKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710171516120_AddedRatingPRimaryKey.cs" />
+    <Compile Include="Migrations\201710171516120_AddedRatingPRimaryKey.Designer.cs">
+      <DependentUpon>201710171516120_AddedRatingPRimaryKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710171519472_RatingAgain.cs" />
+    <Compile Include="Migrations\201710171519472_RatingAgain.Designer.cs">
+      <DependentUpon>201710171519472_RatingAgain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bike.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Detail.cs" />
+    <Compile Include="Models\Mikes_BikesContext.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -196,6 +225,36 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Bikes\Create.cshtml" />
+    <Content Include="Views\Bikes\Delete.cshtml" />
+    <Content Include="Views\Bikes\Details.cshtml" />
+    <Content Include="Views\Bikes\Edit.cshtml" />
+    <Content Include="Views\Bikes\Index.cshtml" />
+    <Content Include="Views\Carts\Create.cshtml" />
+    <Content Include="Views\Carts\Delete.cshtml" />
+    <Content Include="Views\Carts\Details.cshtml" />
+    <Content Include="Views\Carts\Edit.cshtml" />
+    <Content Include="Views\Carts\Index.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Details\Create.cshtml" />
+    <Content Include="Views\Details\Delete.cshtml" />
+    <Content Include="Views\Details\Details.cshtml" />
+    <Content Include="Views\Details\Edit.cshtml" />
+    <Content Include="Views\Details\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Ratings\Create.cshtml" />
+    <Content Include="Views\Ratings\Delete.cshtml" />
+    <Content Include="Views\Ratings\Details.cshtml" />
+    <Content Include="Views\Ratings\Edit.cshtml" />
+    <Content Include="Views\Ratings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -214,6 +273,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710171450419_InitialCreate.resx">
+      <DependentUpon>201710171450419_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710171508341_CustomerIDPrimaryKey.resx">
+      <DependentUpon>201710171508341_CustomerIDPrimaryKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710171512262_AddedDetailPrimaryKey.resx">
+      <DependentUpon>201710171512262_AddedDetailPrimaryKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710171516120_AddedRatingPRimaryKey.resx">
+      <DependentUpon>201710171516120_AddedRatingPRimaryKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710171519472_RatingAgain.resx">
+      <DependentUpon>201710171519472_RatingAgain.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

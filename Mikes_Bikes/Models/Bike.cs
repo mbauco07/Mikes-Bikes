@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
-namespace MikesBikes.Models
+namespace Mikes_Bikes.Models
 {
     public class Bike
     {
