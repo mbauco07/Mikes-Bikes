@@ -89,7 +89,9 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.BikeID }) |
             @Html.ActionLink("Details", "Details", new { id=item.BikeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BikeID })
+            @Html.ActionLink("Delete", "Delete", new { id=item.BikeID }) |
+            <!-- Add To Cart Button TEMP -->
+            @Html.ActionLink("Add To Cart","AddToCart", new { id = item.BikeID })
         </td>
     </tr>
 }

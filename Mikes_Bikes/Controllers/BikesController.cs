@@ -115,6 +115,33 @@ namespace Mikes_Bikes.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult AddToCart(string id)
+        {
+            CartsController cartsCon = new CartsController();
+            
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Bike bike = db.Bikes.Find(id);
+            if (bike == null)
+            {
+                return HttpNotFound();
+            }
+            int custId;
+            string bikeId;
+            int qty;
+            double price;
+            Customer customer;
+
+
+            Cart cart = new Cart();
+            cartsCon.Create(cart);
+
+
+            return RedirectToAction("Index");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
