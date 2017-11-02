@@ -178,6 +178,10 @@
     <Compile Include="Migrations\201710171519472_RatingAgain.Designer.cs">
       <DependentUpon>201710171519472_RatingAgain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711021426496_New db.cs" />
+    <Compile Include="Migrations\201711021426496_New db.Designer.cs">
+      <DependentUpon>201711021426496_New db.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bike.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -195,6 +199,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\bike1.jpg" />
+    <Content Include="Images\bike2.jpg" />
+    <Content Include="Images\bike3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -211,6 +218,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="slideshowjs.js" />
+    <Content Include="slideshowstyle.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -294,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710171519472_RatingAgain.resx">
       <DependentUpon>201710171519472_RatingAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711021426496_New db.resx">
+      <DependentUpon>201711021426496_New db.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

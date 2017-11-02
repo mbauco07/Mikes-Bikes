@@ -52,11 +52,13 @@ namespace Mikes_Bikes.Controllers
             {
                 db.Customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             return View(customer);
         }
+
+        
 
         // GET: Customers/Edit/5
         public ActionResult Edit(int? id)
