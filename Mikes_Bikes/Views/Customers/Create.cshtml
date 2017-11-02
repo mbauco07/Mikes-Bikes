@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Customer</h4>
+        <h4>Create An Account</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -63,10 +63,11 @@
     </div>
 }
 
+<!-- don't let the user have access to the list of other user
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    a@Html.ActionLink("Back to List", "Index")
 </div>
-
+ -->
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
