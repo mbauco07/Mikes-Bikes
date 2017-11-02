@@ -178,6 +178,10 @@
     <Compile Include="Migrations\201710171519472_RatingAgain.Designer.cs">
       <DependentUpon>201710171519472_RatingAgain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711021426496_New db.cs" />
+    <Compile Include="Migrations\201711021426496_New db.Designer.cs">
+      <DependentUpon>201711021426496_New db.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bike.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -294,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710171519472_RatingAgain.resx">
       <DependentUpon>201710171519472_RatingAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711021426496_New db.resx">
+      <DependentUpon>201711021426496_New db.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
