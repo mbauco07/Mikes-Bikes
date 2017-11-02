@@ -9,22 +9,31 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm("Index", "Bikes", FormMethod.Get))
+{
+    <p>
+        <!-- Html.DropDownList(keyInViewBag&variableName, nameForEmptyString) -->
+        Catergory : @Html.DropDownList("bike", "All")<br />
+        Search : @Html.TextBox("searchBike")<br />
+        <input type="submit" value="Search" />
+    </p>
+}
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.BikeName)
+            @Html.ActionLink("Bike Name", "Index", new { sortColumn = ViewBag.nameSort })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BikeColor)
+            @Html.ActionLink("Bike Colour", "Index", new { sortColumn = ViewBag.colourSort })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BikeMfctr)
+            @Html.ActionLink("Bike Manufacture", "Index", new { sortColumn = ViewBag.mtfSort })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BikeType)
+            @Html.ActionLink("Bike Type", "Index", new { sortColumn = ViewBag.typeSort })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BikePrice)
+            @Html.ActionLink("Bike Price", "Index", new { sortColumn = ViewBag.priceSort })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.BikeDescEN)
@@ -33,13 +42,13 @@
             @Html.DisplayNameFor(model => model.BikeDescFR)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BikeSaleAmt)
+            @Html.ActionLink("Bike Sale", "Index", new { sortColumn = ViewBag.saleSort })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BikeDisplayed)
+            @Html.ActionLink("Bikes Displayed", "Index", new { sortColumn = ViewBag.displaySort })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BikeStock)
+            @Html.ActionLink("Bike Stock Amount", "Index", new { sortColumn = ViewBag.stockSort })
         </th>
         <th></th>
     </tr>
