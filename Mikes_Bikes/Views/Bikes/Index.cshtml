@@ -20,6 +20,11 @@
 }
 <table class="table">
     <tr>
+        <!----------- This is here TEMPORARILY ----------->
+        <th>
+            @Html.DisplayNameFor(model => model.BikeID) 
+        </th>
+        <!------------------------------------------------>
         <th>
             @Html.ActionLink("Bike Name", "Index", new { sortColumn = ViewBag.nameSort })
         </th>
@@ -55,6 +60,11 @@
 
 @foreach (var item in Model) {
     <tr>
+        <!----------- This is here TEMPORARILY ----------->
+        <td>
+            @Html.DisplayFor(model => item.BikeID)
+        </td>
+        <!------------------------------------------------>
         <td>
             @Html.DisplayFor(modelItem => item.BikeName)
         </td>
