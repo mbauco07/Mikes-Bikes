@@ -38,5 +38,10 @@ namespace Mikes_Bikes.Controllers
         {
             return View();
         }
+
+        public ActionResult BikeSafety()
+        {
+            return View();
+        }
     }
 }
