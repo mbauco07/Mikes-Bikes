@@ -19,6 +19,7 @@ namespace Mikes_Bikes.Models
         public double BikeSaleAmt { get; set; }
         public bool BikeDisplayed { get; set; }
         public int BikeStock { get; set; }
+        public string BikeImage { get; set; }
     }
 
 }

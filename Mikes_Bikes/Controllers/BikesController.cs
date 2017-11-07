@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Mikes_Bikes.Models;
+using PagedList;
 
 namespace Mikes_Bikes.Controllers
 {
@@ -15,7 +16,7 @@ namespace Mikes_Bikes.Controllers
         private Mikes_BikesContext db = new Mikes_BikesContext();
         
         // GET: Bikes
-        public ActionResult Index(string bikeId,string sortColumn,string searchBike="")
+        public ActionResult Index(int? page,string bikeId,string sortColumn,string searchBike="")
         {
             //list of all bikes
             var bikes = from bike in db.Bikes select bike;
@@ -27,6 +28,7 @@ namespace Mikes_Bikes.Controllers
 
             // Sorting by field
             sortColumn = String.IsNullOrEmpty(sortColumn) ? "" : sortColumn.ToLower();
+            ViewBag.idSort = sortColumn == "bikeid" ? "bikeid_desc" : "bikeid";
             ViewBag.nameSort = sortColumn == "bikename" ? "bikename_desc" : "bikename";
             ViewBag.colourSort = sortColumn == "bikecolour" ? "bikecolour_desc" : "bikecolour";
             ViewBag.mtfSort = sortColumn == "bikemtf" ? "bikemtf_desc" : "bikemtf";
@@ -39,6 +41,12 @@ namespace Mikes_Bikes.Controllers
             //Sort asc or desc, based on column clicked and state
             switch (sortColumn)
             {
+                case "bikeid":
+                    bikes = bikes.OrderBy(bike => bike.BikeID);
+                    break;
+                case "bikeid_desc":
+                    bikes = bikes.OrderByDescending(bike => bike.BikeID);
+                    break;
                 case "bikename":
                     bikes = bikes.OrderBy(bike => bike.BikeName);
                     break;
@@ -92,16 +100,19 @@ namespace Mikes_Bikes.Controllers
                     break;
             }
 
-
+            int pageSize = 2;//change this number to change how many bikes are shown per page
+            int pageNumber = page ?? 1;
             // Selecting correct bikeId.
             if (!String.IsNullOrEmpty(bikeId))
                 bikes = bikes.Where(bike => bike.BikeID  == bikeId);
             // Searching
             //Make sure search string is atleast 3 chars long
             if(searchBike.Length<=3)
-                return View(bikes.ToList());
+                return View(bikes.ToPagedList(pageNumber, pageSize));
             bikes = String.IsNullOrEmpty(searchBike) ? bikes : bikes.Where(bike => bike.BikeName.Contains(searchBike));
-            return View(bikes.ToList());
+            //Pagation
+
+            return View(bikes.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Bikes/Details/5
@@ -130,7 +141,7 @@ namespace Mikes_Bikes.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BikeID,BikeName,BikeColor,BikeMfctr,BikeType,BikePrice,BikeDescEN,BikeDescFR,BikeSaleAmt,BikeDisplayed,BikeStock")] Bike bike)
+        public ActionResult Create([Bind(Include = "BikeID,BikeName,BikeColor,BikeMfctr,BikeType,BikePrice,BikeDescEN,BikeDescFR,BikeSaleAmt,BikeDisplayed,BikeStock,BikeImage")] Bike bike)
         {
             if (ModelState.IsValid)
             {
@@ -162,7 +173,7 @@ namespace Mikes_Bikes.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BikeID,BikeName,BikeColor,BikeMfctr,BikeType,BikePrice,BikeDescEN,BikeDescFR,BikeSaleAmt,BikeDisplayed,BikeStock")] Bike bike)
+        public ActionResult Edit([Bind(Include = "BikeID,BikeName,BikeColor,BikeMfctr,BikeType,BikePrice,BikeDescEN,BikeDescFR,BikeSaleAmt,BikeDisplayed,BikeStock,BikeImage")] Bike bike)
         {
             if (ModelState.IsValid)
             {

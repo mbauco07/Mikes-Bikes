@@ -1,4 +1,9 @@
-﻿@model IEnumerable<Mikes_Bikes.Models.Bike>
+﻿
+@model PagedList.IPagedList<Mikes_Bikes.Models.Bike>
+@using PagedList.Mvc;
+
+
+
 
 @{
     ViewBag.Title = "Index";
@@ -22,8 +27,7 @@
     <tr>
         <!----------- This is here TEMPORARILY ----------->
         <th>
-            @Html.DisplayNameFor(model => model.BikeID) 
-        </th>
+            @Html.ActionLink("Bike ID", "Index", new { sortColumn = ViewBag.idSort })        </th>
         <!------------------------------------------------>
         <th>
             @Html.ActionLink("Bike Name", "Index", new { sortColumn = ViewBag.nameSort })
@@ -41,10 +45,10 @@
             @Html.ActionLink("Bike Price", "Index", new { sortColumn = ViewBag.priceSort })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BikeDescEN)
+            @Html.DisplayName("BikeDescEN")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BikeDescFR)
+            @Html.DisplayName("BikeDescFR")
         </th>
         <th>
             @Html.ActionLink("Bike Sale", "Index", new { sortColumn = ViewBag.saleSort })
@@ -106,3 +110,5 @@
 }
 
 </table>
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

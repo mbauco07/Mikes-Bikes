@@ -1,0 +1,61 @@
+﻿ 
+@model PagedList.IPagedList<Mikes_Bikes.Models.Bike>
+@using PagedList.Mvc;
+
+
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("Index", "CustomerBikeList", FormMethod.Get))
+{
+    <p>
+        <!-- Html.DropDownList(keyInViewBag&variableName, nameForEmptyString) -->
+        Catergory : @Html.DropDownList("bikeCat", "All")<br />
+        Search : @Html.TextBox("searchBike")<br />
+        <input type="submit" value="Search" />
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Bike Name", "Index", new { sortColumn = ViewBag.nameSort })
+        </th>
+        <th>
+            @Html.ActionLink("Bike Colour", "Index", new { sortColumn = ViewBag.colourSort })
+        </th>
+        <th>
+            @Html.ActionLink("Bike Manufacture", "Index", new { sortColumn = ViewBag.mtfSort })
+        </th>
+        <th>
+            @Html.ActionLink("Bike Type", "Index", new { sortColumn = ViewBag.typeSort })
+        </th>
+        <th>
+            @Html.ActionLink("Bike Price", "Index", new { sortColumn = ViewBag.priceSort })
+        </th>      
+        <th>
+            @Html.ActionLink("Bike Sale", "Index", new { sortColumn = ViewBag.saleSort })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr><td colspan="6">
+           
+            @Html.Partial("PartialBike", item)
+       
+            @Html.ActionLink("Add To Cart", "AddToCart", new { id = item.BikeID })
+       </td></tr>
+    }
+
+</table>
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
