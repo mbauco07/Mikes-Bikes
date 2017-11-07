@@ -195,13 +195,17 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\bike1.png" />
+    <Content Include="Content\Images\bike1_SLS.jpg" />
+    <Content Include="Content\Images\bike2_SLS.jpg" />
+    <Content Include="Content\Images\bike3_SLS.jpg" />
+    <Content Include="Content\Images\returnpolicy.png" />
+    <Content Include="Content\slideshowjs.js" />
+    <Content Include="Content\slideshowstyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\bike1.jpg" />
-    <Content Include="Images\bike2.jpg" />
-    <Content Include="Images\bike3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -218,8 +222,6 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="slideshowjs.js" />
-    <Content Include="slideshowstyle.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -270,6 +272,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
