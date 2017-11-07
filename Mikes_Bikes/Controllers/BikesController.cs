@@ -212,16 +212,29 @@ namespace Mikes_Bikes.Controllers
             {
                 return HttpNotFound();
             }
-            int custId;
-            string bikeId;
-            int qty;
-            double price;
-            Customer customer;
+            // This will have to be retrieved from the session variable.
+            int custId=1;
+            // This will have to be retrieved from the textbox on the ItemView page. 
+            int qty=5;
+            double price=bike.BikePrice;
+            // TEMP
+            var cartQuery = from c in db.Carts
+                            where c.BikeID == id
+                            select c.CartID;
 
-
-            Cart cart = new Cart();
-            cartsCon.Create(cart);
-
+            
+            //Cart tmp = db.Carts.Find();
+            // Already in the cart
+            /*if (tmp.BikeID == id)
+            {
+                Cart cart = new Cart { CustomerID = custId, BikeID = id, Quantity = qty+2, Price = price };
+                cartsCon.Edit(tmp.CartID);
+            }
+            else
+            {*/
+                Cart cart = new Cart { CustomerID = custId, BikeID = id, Quantity = qty, Price = price };
+                cartsCon.Create(cart);
+            //}
 
             return RedirectToAction("Index");
         }
