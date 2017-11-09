@@ -228,7 +228,7 @@ namespace Mikes_Bikes.Controllers
             // This will have to be retrieved from the textbox on the ItemView page. 
             int qty=5;
             double price=bike.BikePrice;
-            // TEMP
+            
             int alreadyInCart = (from c in db.Carts
                             where c.BikeID == id
                             select c.CartID).Count();
