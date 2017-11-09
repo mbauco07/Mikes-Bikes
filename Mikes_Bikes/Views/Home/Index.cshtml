@@ -2,11 +2,15 @@
     ViewBag.Title = "Home Page";
 }
 <head>
+    
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="~/Content/slideshowstyle.css">
     <script src="~/Content/slideshowjs.js"></script>
+    
+    
 </head>
 <body>
+<!--
 <div class="container">
     <div class="header">
         <h1 class="text-muted">JQUERY SLIDER</h1>
@@ -14,13 +18,27 @@
 
     <div id="slider">
         <ul class="slides">
-            <li class="slide"><img src ="/Content/Images/bike1_SLS.jpg" /></li>
+            <li class="slide"><img src="/Content/Images/bike1_SLS.jpg" /></li>
             <li class="slide"><img src="/Content/Images/bike2_SLS.jpg" /></li>
             <li class="slide"><img src="/Content/Images/bike3_SLS.jpg" /></li>
         </ul>
     </div>
 </div>
+-->
 
+<h1>Welcome to Mikes Bikes!</h1>
+
+<div id="slideshow">
+    <div>
+        <img src="~/Content/Images/bike1_SLS.jpg" >
+    </div>
+    <div>
+        <img src="~/Content/Images/bike2_SLS.jpg" style="width: 630px; height: 354px;">
+    </div>
+    <div>
+        <img src="~/Content/Images/bike3_SLS.jpg" >
+    </div>
+</div>
 
 
 </body>
