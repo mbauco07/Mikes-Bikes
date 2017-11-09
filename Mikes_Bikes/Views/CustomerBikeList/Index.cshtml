@@ -4,10 +4,24 @@
 
 
 
-
 @{
     ViewBag.Title = "Index";
 }
+<style>
+    .floatLeft {
+        width: 10%;
+        float: left;
+    }
+
+    .floatRight {
+        width: 90%;
+        float: right;
+    }
+
+    .container {
+        overflow: hidden;
+    }
+</style>
 
 <h2>Index</h2>
 
@@ -23,40 +37,52 @@
         <input type="submit" value="Search" />
     </p>
 }
-<table class="table">
-    <tr>
-        <th>
-            @Html.ActionLink("Bike Name", "Index", new { sortColumn = ViewBag.nameSort })
-        </th>
-        <th>
-            @Html.ActionLink("Bike Colour", "Index", new { sortColumn = ViewBag.colourSort })
-        </th>
-        <th>
-            @Html.ActionLink("Bike Manufacture", "Index", new { sortColumn = ViewBag.mtfSort })
-        </th>
-        <th>
-            @Html.ActionLink("Bike Type", "Index", new { sortColumn = ViewBag.typeSort })
-        </th>
-        <th>
-            @Html.ActionLink("Bike Price", "Index", new { sortColumn = ViewBag.priceSort })
-        </th>      
-        <th>
-            @Html.ActionLink("Bike Sale", "Index", new { sortColumn = ViewBag.saleSort })
-        </th>
-        <th></th>
-    </tr>
+<div class="container">
+    <div class="floatLeft">
+        <table class="table">
 
-    @foreach (var item in Model)
-    {
-        <tr><td colspan="6">
-           
-            @Html.Partial("PartialBike", item)
-       
-            @Html.ActionLink("Add To Cart", "AddToCart", new { id = item.BikeID })
-       </td></tr>
-    }
+            <tr>
+                <td>@Html.ActionLink("Bike Name", "Index", new { sortColumn = ViewBag.nameSort })</td>
+            </tr>
+            <tr>
+                <td>@Html.ActionLink("Bike Colour", "Index", new { sortColumn = ViewBag.colourSort })</td>
+            </tr>
+            <tr>
+                <td>@Html.ActionLink("Bike Manufacture", "Index", new { sortColumn = ViewBag.mtfSort })</td>
+            </tr>
+            <tr>
+                <td>@Html.ActionLink("Bike Type", "Index", new { sortColumn = ViewBag.typeSort })</td>
+            </tr>
+            <tr>
+                <td>@Html.ActionLink("Bike Price", "Index", new { sortColumn = ViewBag.priceSort })</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.ActionLink("Bike Sale", "Index", new { sortColumn = ViewBag.saleSort })
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class=" floatRight">
+       <table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td colspan="6">
+                    @Html.Partial("PartialBike", item) 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.ActionLink("Add To Cart", "AddToCart", new { id = item.BikeID })
 
-</table>
+
+                </td>
+            </tr>
+        }
+        </table>
+    </div>
+</div>
         Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
         @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 
