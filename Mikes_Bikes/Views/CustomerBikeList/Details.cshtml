@@ -98,3 +98,11 @@
     @Html.ActionLink("Add To Cart", "AddToCart", new { id = @Html.DisplayFor(model => model.BikeID)})
     @Html.ActionLink("Back to List", "Index","CustomerBikelist")
 </p>
+
+<p>
+    @Html.Partial("_Reviews")
+
+
+    @Html.Action("Review", "CustomerBikelist")
+
+</p>

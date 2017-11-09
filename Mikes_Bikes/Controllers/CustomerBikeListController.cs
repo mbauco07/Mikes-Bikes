@@ -15,7 +15,17 @@ namespace Mikes_Bikes.Controllers
     {
         private Mikes_BikesContext db = new Mikes_BikesContext();
 
+        [ChildActionOnly]
+        public PartialViewResult Review( int? rating, int? custId, string bikeID,  string review)
+        {
+            ViewBag.Rating = 2;
+            ViewBag.Cust = "test cust";
+            ViewBag.Review = "this is a test review";
+            ViewBag.Bike = "test bike";
+            return PartialView("_ReviewForm", ViewBag);
 
+
+         }
         // GET: Bikes
         public ActionResult Index(int? page, string bikeCat, string sortColumn, string searchBike = "")
         {
