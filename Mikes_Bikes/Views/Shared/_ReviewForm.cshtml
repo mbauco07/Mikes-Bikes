@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+@{
+    ViewBag.Title = "Review";
+}
+
+
+<form method="post">
+     Review This Product: <br />
+    Rating (Out Of 5): <input type="range" name="points" min="1" max="5"> <br />
+    <textarea rows="4" cols="50">
+        Please Enter your review coment here!
+    </textarea>  <br />
+    <br />
+    <input type="submit" value="Submit Review"/>
+    <p>that is: @ViewBag.test heee</p>
+</form>
+
+
+</html>
