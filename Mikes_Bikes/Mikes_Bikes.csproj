@@ -206,9 +206,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-<<<<<<< HEAD
     <Content Include="Content\PagedList.css" />
-=======
     <Content Include="Content\Images\bike1.png" />
     <Content Include="Content\Images\bike1_SLS.jpg" />
     <Content Include="Content\Images\bike2_SLS.jpg" />
@@ -216,7 +214,6 @@
     <Content Include="Content\Images\returnpolicy.png" />
     <Content Include="Content\slideshowjs.js" />
     <Content Include="Content\slideshowstyle.css" />
->>>>>>> a9a647f7961765663ea602ab47b67be7910d0f7c
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
