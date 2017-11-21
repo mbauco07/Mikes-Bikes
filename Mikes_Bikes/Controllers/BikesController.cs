@@ -196,6 +196,14 @@ namespace Mikes_Bikes.Controllers
             {
                 return HttpNotFound();
             }
+            var bikeDetail = from bikeD in db.Details where bikeD.BikeID==id select bikeD;
+
+            if (bikeDetail.Count() == 0)
+            {
+               
+                TempData["msg"] = "<script>alert('Cannot delete "+bike.BikeName+"');</script>";
+                return RedirectToAction("Index");
+            }
             return View(bike);
         }
 

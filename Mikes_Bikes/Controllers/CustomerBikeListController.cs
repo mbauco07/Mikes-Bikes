@@ -30,7 +30,7 @@ namespace Mikes_Bikes.Controllers
         public ActionResult Index(int? page, string bikeCat, string sortColumn, string searchBike = "")
         {
             //list of all bikes
-            var bikes = from bike in db.Bikes select bike;
+            var bikes = from bike in db.Bikes where bike.BikeDisplayed == true select bike;
             //Get all bike categories
             var categoryList = new List<string>();
             var categoryQuery = from b in db.Bikes select b.BikeType;
@@ -237,7 +237,7 @@ namespace Mikes_Bikes.Controllers
             // This will have to be retrieved from the session variable.
             int custId = 1;
             // This will have to be retrieved from the textbox on the ItemView page. 
-            int qty =;
+            int qty =0;
             double price = bike.BikePrice;
 
             int alreadyInCart = (from c in db.Carts
