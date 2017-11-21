@@ -99,9 +99,11 @@
 </p>
 
 <p>
-    @Html.Partial("_Reviews")
 
 
-    @Html.Action("Review", "CustomerBikelist")
+
+    @Html.Action("Review", "CustomerBikelist", new { BikeID = Model.BikeID })
 
 </p>
+
+
