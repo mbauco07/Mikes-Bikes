@@ -221,7 +221,7 @@ namespace Mikes_Bikes.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult AddToCart(string id, int quantity)
+        public ActionResult AddToCart(string id, int q)
         {
             CartsController cartsCon = new CartsController();
 
@@ -237,7 +237,7 @@ namespace Mikes_Bikes.Controllers
             // This will have to be retrieved from the session variable.
             int custId = 1;
             // This will have to be retrieved from the textbox on the ItemView page. 
-            int qty =;
+            int qty = q;
             double price = bike.BikePrice;
 
             int alreadyInCart = (from c in db.Carts
@@ -251,7 +251,7 @@ namespace Mikes_Bikes.Controllers
             // Already in the cart
             if (alreadyInCart == 1)
             {
-                Cart tmp = new Cart { CartID = getCartID, CustomerID = custId, BikeID = id, Quantity = qty + 2, Price = price };
+                Cart tmp = new Cart { CartID = getCartID, CustomerID = custId, BikeID = id, Quantity = qty + 1, Price = price };
                 cartsCon.Edit(tmp);
             }
             else

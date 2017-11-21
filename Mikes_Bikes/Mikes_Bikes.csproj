@@ -324,12 +324,9 @@
     <Content Include="Views\Ratings\Edit.cshtml" />
     <Content Include="Views\Ratings\Index.cshtml" />
     <Content Include="Views\Shared\PartialBike.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Carts\Checkout.cshtml" />
-=======
     <Content Include="Views\Shared\_ReviewForm.cshtml" />
     <Content Include="Views\Shared\_Reviews.cshtml" />
->>>>>>> 2773ecd2a988dfcf9cfb659a3d68add1c0002f60
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
