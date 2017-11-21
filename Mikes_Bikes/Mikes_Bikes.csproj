@@ -197,6 +197,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BikesController.cs" />
     <Compile Include="Controllers\CartsController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CustomerBikeListController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\DetailsController.cs" />
@@ -324,6 +325,15 @@
     <Content Include="Views\Ratings\Edit.cshtml" />
     <Content Include="Views\Ratings\Index.cshtml" />
     <Content Include="Views\Shared\PartialBike.cshtml" />
+<<<<<<< HEAD
+=======
+    <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Category\Delete.cshtml" />
+    <Content Include="Views\Category\Details.cshtml" />
+    <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\BikesInCategory.cshtml" />
+>>>>>>> 39641c966aa2bf251290fa738bd3392df572c906
     <Content Include="Views\Carts\Checkout.cshtml" />
     <Content Include="Views\Shared\_ReviewForm.cshtml" />
     <Content Include="Views\Shared\_Reviews.cshtml" />

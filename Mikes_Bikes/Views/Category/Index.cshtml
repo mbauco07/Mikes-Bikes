@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Mikes_Bikes.Models.Bike>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Categories</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Bike Type", "Index", new { sortColumn = ViewBag.typeSort })
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.ActionLink("m01", "BikesInCategory", new { theType = "m01" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("Racing", "BikesInCategory", new { theType = "Racing" })
+        </td>
+    </tr>
+
+</table>
