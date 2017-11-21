@@ -9,7 +9,6 @@
 <div>
     <h4>Bike</h4>
     <hr />
-    <img src=@Html.DisplayFor(model=>model.BikeImage) alt="Sample Photo" height="100" width="133" />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.BikeName)
@@ -91,20 +90,17 @@
             @Html.DisplayFor(model => model.BikeStock)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.BikeImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BikeImage)
+        </dd>
+
     </dl>
 </div>
-<p>  
-    <!-- To change maybe: quantity -->
-    @Html.ActionLink("Add To Cart", "AddToCart", new { id = @Html.DisplayFor(model => model.BikeID) , q=1})
-    @Html.ActionLink("Back to List", "Index","CustomerBikelist")
-</p>
-
 <p>
-
-
-
-    @Html.Action("Review", "CustomerBikelist", new { BikeID = Model.BikeID })
-
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BikeID }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>
-
-

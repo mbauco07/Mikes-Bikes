@@ -16,16 +16,58 @@ namespace Mikes_Bikes.Controllers
         private Mikes_BikesContext db = new Mikes_BikesContext();
 
         [ChildActionOnly]
-        public PartialViewResult Review( int? rating, int? custId, string bikeID,  string review)
+        public PartialViewResult Review()
         {
-            ViewBag.Rating = 2;
-            ViewBag.Cust = "test cust";
-            ViewBag.Review = "this is a test review";
-            ViewBag.Bike = "test bike";
-            return PartialView("_ReviewForm", ViewBag);
-
-
+            return PartialView("_ReviewForm");
          }
+
+
+        // POST: Bikes/add Review
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+       // [ValidateAntiForgeryToken]
+        public ActionResult Review(string BikeID, int ratingNum, string ratingString)
+        {
+            //int custid = 1;
+            Rating newRating = new Rating();
+            /*if (ModelState.IsValid)
+            {
+               db.SaveChanges();
+                return PartialView("_ReviewForm");
+            }*/
+            //the rating strng can not be empty
+            if (string.IsNullOrWhiteSpace(ratingString))
+            {
+                ViewBag.BikeID = "";
+                ViewBag.ratingNum = "";
+                ViewBag.ratingString = "";
+                ViewBag.completed = "sorry review can not be blank";
+            }
+            else
+            {
+                ViewBag.BikeID = BikeID;
+                ViewBag.ratingNum = ratingNum;
+                ViewBag.ratingString = ratingString;
+                ViewBag.completed = "review was sent";
+
+                newRating.BikeID = BikeID;
+                //newRating.CustomerID = custid;
+                newRating.Rate = ratingNum;
+                newRating.Review = ratingString;
+               /* if (ModelState.IsValid)
+                {
+                    db.Ratings.Add(newRating);
+                    db.SaveChanges();
+                    return PartialView("_ReviewForm");
+                }*/
+
+            }
+
+
+            return PartialView("_ReviewForm");
+        }
+
         // GET: Bikes
         public ActionResult Index(int? page, string bikeCat, string sortColumn, string searchBike = "")
         {
@@ -221,7 +263,7 @@ namespace Mikes_Bikes.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult AddToCart(string id, int quantity)
+        public ActionResult AddToCart(string id, int q)
         {
             CartsController cartsCon = new CartsController();
 
@@ -237,7 +279,11 @@ namespace Mikes_Bikes.Controllers
             // This will have to be retrieved from the session variable.
             int custId = 1;
             // This will have to be retrieved from the textbox on the ItemView page. 
+
             int qty =0;
+
+            int qty = q;
+
             double price = bike.BikePrice;
 
             int alreadyInCart = (from c in db.Carts
@@ -251,7 +297,7 @@ namespace Mikes_Bikes.Controllers
             // Already in the cart
             if (alreadyInCart == 1)
             {
-                Cart tmp = new Cart { CartID = getCartID, CustomerID = custId, BikeID = id, Quantity = qty + 2, Price = price };
+                Cart tmp = new Cart { CartID = getCartID, CustomerID = custId, BikeID = id, Quantity = qty + 1, Price = price };
                 cartsCon.Edit(tmp);
             }
             else

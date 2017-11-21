@@ -7,16 +7,18 @@
 
 <form method="post">
      Review This Product: <br />
-    Rating (Out Of 5): <input type="range" name="points" min="1" max="5"> <br />
-    <textarea rows="4" cols="50">
-        Please Enter your review coment here!
+    Rating (Out Of 5): <input type="range" name="ratingNum" min="1" max="5"> <br />
+    <p>Please Enter your review coment here!</p>
+    <textarea rows="4" cols="50" name="ratingString">
     </textarea>  <br />
     <br />
     <input type="submit" value="Submit Review"/>
-    <p>that is: @ViewBag.Rating: rating</p>
-    <p>that is: @ViewBag.Cust: cust</p>
-    <p>that is: @ViewBag.Review: review</p>
-    <p>that is: @ViewBag.Bike: bike</p>
+    <p> @ViewBag.BikeID</p>
+    <p> @ViewBag.ratingNum</p>
+    <p> @ViewBag.ratingString</p>
+    <p> @ViewBag.completed</p>
+
+
 
 </form>
 
