@@ -228,24 +228,27 @@ namespace Mikes_Bikes.Controllers
             // This will have to be retrieved from the textbox on the ItemView page. 
             int qty=5;
             double price=bike.BikePrice;
-            // TEMP
-            var cartQuery = from c in db.Carts
-                            where c.BikeID == id
-                            select c.CartID;
-
             
-            //Cart tmp = db.Carts.Find();
+            int alreadyInCart = (from c in db.Carts
+                            where c.BikeID == id
+                            select c.CartID).Count();
+
+            int getCartID = (from c in db.Carts
+                    where c.BikeID == id
+                    select c.CartID).SingleOrDefault();
+
             // Already in the cart
-            /*if (tmp.BikeID == id)
+            if (alreadyInCart == 1)
             {
-                Cart cart = new Cart { CustomerID = custId, BikeID = id, Quantity = qty+2, Price = price };
-                cartsCon.Edit(tmp.CartID);
+                Cart tmp = new Cart { CartID = getCartID, CustomerID = custId, BikeID = id, Quantity = qty+2, Price = price };
+                cartsCon.Edit(tmp);
             }
             else
-            {*/
+            // Not in cart already
+            {
                 Cart cart = new Cart { CustomerID = custId, BikeID = id, Quantity = qty, Price = price };
                 cartsCon.Create(cart);
-            //}
+            }
 
             return RedirectToAction("Index");
         }

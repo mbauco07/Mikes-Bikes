@@ -74,14 +74,20 @@
             </tr>
             <tr>
                 <td>
-                    @Html.ActionLink("Add To Cart", "AddToCart", new { id = item.BikeID })
-
-
+                    $@Html.DisplayFor(model => item.BikePrice)
                 </td>
             </tr>
+            <tr>
+                <td>
+                    @Html.ActionLink("Add To Cart", "AddToCart", new { id = item.BikeID })
+                </td>
+            </tr>
+
         }
         </table>
     </div>
 </div>
         Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
         @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+

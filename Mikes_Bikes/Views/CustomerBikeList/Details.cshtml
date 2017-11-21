@@ -94,6 +94,17 @@
     </dl>
 </div>
 <p>
+    Quantity : @Html.TextBox("quantity", "1")<br />
     @Html.ActionLink("Add To Cart", "AddToCart", new { id = @Html.DisplayFor(model => model.BikeID)})
     @Html.ActionLink("Back to List", "Index","CustomerBikelist")
 </p>
+
+<p>
+
+
+
+    @Html.Action("Review", "CustomerBikelist", new { BikeID = Model.BikeID })
+
+</p>
+
+
