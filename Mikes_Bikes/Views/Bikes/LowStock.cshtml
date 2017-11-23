@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Mikes_Bikes.Models.Bike>
+
+@using (Html.BeginForm("LowStock", "Bikes", FormMethod.Get))
+{
+    <p>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <br>
+        Lowest Stock : @Html.TextBox("Stock")<br />
+        <input type="submit" value="Stock" />
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeColor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeMfctr)
+        </th>     
+        <th>
+            @Html.DisplayNameFor(model => model.BikePrice)
+        </th>                      
+        <th>
+            @Html.DisplayNameFor(model => model.BikeStock)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.Raw(item.BikeName)
+        </td>
+        <td>
+            @Html.Raw(item.BikeColor)
+        </td>
+        <td>
+            @Html.Raw(item.BikeMfctr)
+        </td>
+        <td>
+            @Html.Raw(item.BikeDescFR)
+        </td>
+        <td>
+            @Html.Raw(item.BikeDescEN)
+        </td>
+ </tr>
+}
+
+</table>
