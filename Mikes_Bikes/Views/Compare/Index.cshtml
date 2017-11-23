@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Mikes_Bikes.Models.Bike>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+<h2>Choose Bikes to Compare</h2>
+
+@using (Html.BeginForm("CompareView"))
+{
+    <table class="table">
+        <tr>
+            <th>
+                Compare
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BikeName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <!--@Html.CheckBox("CompareBike")-->
+                    <input type="checkbox" name="compare" id="@item.BikeName" value="true" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BikeName)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <input type="submit" value="Compare" id="SubmitCompare" />
+}

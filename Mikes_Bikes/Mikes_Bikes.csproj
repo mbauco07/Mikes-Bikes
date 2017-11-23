@@ -198,6 +198,7 @@
     <Compile Include="Controllers\BikesController.cs" />
     <Compile Include="Controllers\CartsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CompareController.cs" />
     <Compile Include="Controllers\CustomerBikeListController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\DetailsController.cs" />
@@ -378,12 +379,10 @@
     <Content Include="Views\Ratings\Edit.cshtml" />
     <Content Include="Views\Ratings\Index.cshtml" />
     <Content Include="Views\Shared\PartialBike.cshtml" />
-
     <Content Include="Views\Carts\Checkout.cshtml" />
     <Content Include="Views\Shared\_ReviewForm.cshtml" />
     <Content Include="Views\Shared\_Reviews.cshtml" />
     <Content Include="Views\Shared\_LayoutCustomer.cshtml" />
-
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Category\Delete.cshtml" />
     <Content Include="Views\Category\Details.cshtml" />
@@ -393,7 +392,12 @@
     <Content Include="Views\Carts\Checkout.cshtml" />
     <Content Include="Views\Shared\_ReviewForm.cshtml" />
     <Content Include="Views\Shared\_Reviews.cshtml" />
-
+    <Content Include="Views\Compare\Create.cshtml" />
+    <Content Include="Views\Compare\Delete.cshtml" />
+    <Content Include="Views\Compare\Details.cshtml" />
+    <Content Include="Views\Compare\Edit.cshtml" />
+    <Content Include="Views\Compare\Index.cshtml" />
+    <Content Include="Views\Compare\CompareView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

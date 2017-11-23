@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Mikes_Bikes.Models.Bike>
+
+@{
+    ViewBag.Title = "CompareView";
+}
+
+<br />
+<br />
+<h2>Comparing Bikes</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeColor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeMfctr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeDescEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeDescFR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeSaleAmt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeDisplayed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeStock)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeColor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeMfctr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeDescEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeDescFR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeSaleAmt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeDisplayed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeStock)
+            </td>
+        </tr>
+    }
+
+</table>
