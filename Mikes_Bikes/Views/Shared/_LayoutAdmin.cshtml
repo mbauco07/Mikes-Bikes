@@ -17,10 +17,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <!-- MARCO RE ORDER THIS PLEASE -->
                 @Html.ActionLink("Mikes Bikes", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-<<<<<<< HEAD
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Careers", "Careers", "Home")</li>
                     <li>@Html.ActionLink("About Us", "About", "Home")</li>
@@ -44,7 +44,6 @@
                     <ul class="dropdown-menu">
                         <li>@Html.ActionLink("View Cart", "Index", "Carts")</li>
                         <li>@Html.ActionLink("Checkout", "Checkout", "Carts")</li>
-=======
                     <ul class="nav navbar-nav">
                         <!--Information Drop Down-->
                         <div class="navbar-header" style="position:relative">
@@ -66,7 +65,7 @@
                             <a class="btn navbar-btn" href="#" data-toggle="dropdown">Cart<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>@Html.ActionLink("View Cart", "Index", "Carts")</li>
-                                <li><a href="#">Checkout</a></li>
+                                <li>@Html.ActionLink("Checkout", "Checkout", "Carts")</li>
                         </div>
                         <!--Login View-->
                         @Html.Partial("_LoginPartial")
@@ -78,7 +77,6 @@
                             }
                         </script>
                         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
->>>>>>> 388da19f11fae24969999c7738d247dc7cf26f76
                     </ul>
                </div>
             </div>
