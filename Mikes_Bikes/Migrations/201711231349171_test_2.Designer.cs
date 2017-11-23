@@ -7,13 +7,13 @@ namespace Mikes_Bikes.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class TestAddFieldWithRequired : IMigrationMetadata
+    public sealed partial class test_2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(TestAddFieldWithRequired));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(test_2));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711211554553_TestAddFieldWithRequired"; }
+            get { return "201711231349171_test_2"; }
         }
         
         string IMigrationMetadata.Source

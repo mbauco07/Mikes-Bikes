@@ -3,7 +3,7 @@ namespace Mikes_Bikes.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class addedingrequire : DbMigration
+    public partial class forgot_some_requires : DbMigration
     {
         public override void Up()
         {
@@ -11,6 +11,7 @@ namespace Mikes_Bikes.Migrations
         
         public override void Down()
         {
+            AlterColumn("dbo.Bikes", "BikeImage", c => c.String());
         }
     }
 }

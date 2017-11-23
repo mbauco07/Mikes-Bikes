@@ -5,15 +5,14 @@ namespace Mikes_Bikes.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Mikes_Bikes.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Mikes_Bikes.Models.Mikes_BikesContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Mikes_Bikes.Models.ApplicationDbContext";
         }
 
-        protected override void Seed(Mikes_Bikes.Models.ApplicationDbContext context)
+        protected override void Seed(Mikes_Bikes.Models.Mikes_BikesContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -3,7 +3,7 @@ namespace Mikes_Bikes.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class tookawayrequires1 : DbMigration
+    public partial class test_1 : DbMigration
     {
         public override void Up()
         {

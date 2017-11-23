@@ -20,31 +20,41 @@
                 @Html.ActionLink("Mikes Bikes", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Careers", "Careers", "Home")</li>
-                    <li>@Html.ActionLink("About Us", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Return Policy", "ReturnPolicy", "Home")</li>
-                    <li>@Html.ActionLink("Bike Safety", "BikeSafety", "Home")</li>
-                    <li>@Html.ActionLink("Bike DB", "Index", "Bikes")</li>
-                    <li>@Html.ActionLink("Categories", "Index", "Category")</li>
-                    <li>@Html.ActionLink("Customer List", "Index", "CustomerBikeList")</li>
-                    <li><div id="google_translate_element"></div></li>
-                    <script type="text/javascript">
-                        function googleTranslateElementInit() {
-                            new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false }, 'google_translate_element');
-                        }
-                    </script>
-                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-                </ul>
-                @Html.Partial("_LoginPartial")
-                <div class="navbar-header" style="position:relative">
-                    <a class="btn navbar-btn" href="#" data-toggle="dropdown">Cart<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("View Cart", "Index", "Carts")</li>
-                        <li><a href="#">Checkout</a></li>
+                    <ul class="nav navbar-nav">
+                        <!--Information Drop Down-->
+                        <div class="navbar-header" style="position:relative">
+                            <a class="btn navbar-btn" href="#" data-toggle="dropdown">Information<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Return Policy", "ReturnPolicy", "Home")</li>
+                                <li>@Html.ActionLink("Safety On a Bike", "BikeSafety", "Home")</li>
+                                <li>@Html.ActionLink("Contact Us!", "Contact", "Home")</li>
+                                <li>@Html.ActionLink("Careers", "Careers", "Home")</li>
+                                <li>@Html.ActionLink("About Us", "About", "Home")</li>
+                            </ul>
+                        </div>
+                        <!--Clickble Links-->
+                        <li>@Html.ActionLink("Bike DB", "Index", "Bikes")</li>
+                        <li>@Html.ActionLink("Categories", "Index", "Category")</li>
+                        <li>@Html.ActionLink("Customer List", "Index", "CustomerBikeList")</li>
+                        <!--Cart Drop Down-->
+                        <div class="navbar-header" style="position:relative">
+                            <a class="btn navbar-btn" href="#" data-toggle="dropdown">Cart<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("View Cart", "Index", "Carts")</li>
+                                <li><a href="#">Checkout</a></li>
+                        </div>
+                        <!--Login View-->
+                        @Html.Partial("_LoginPartial")
+                        <!--Translater-->
+                        <li><div id="google_translate_element"></div></li>
+                        <script type="text/javascript">
+                            function googleTranslateElementInit() {
+                                new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false }, 'google_translate_element');
+                            }
+                        </script>
+                        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                     </ul>
-                </div>
+               </div>
             </div>
         </div>
     </div>
@@ -59,13 +69,6 @@
             <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
             <li>@Html.ActionLink("Return Policy", "ReturnPolicy", "Home")</li>
             <li> @Html.ActionLink("Bike Safety", "BikeSafety", "Home")</li>
-            <li><div id="google_translate_element"></div></li>
-            <script type="text/javascript">
-                        function googleTranslateElementInit() {
-                            new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false }, 'google_translate_element');
-                        }
-            </script>
-            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         </footer>
     </div>
 

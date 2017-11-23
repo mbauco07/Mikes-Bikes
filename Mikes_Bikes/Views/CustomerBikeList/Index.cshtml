@@ -74,7 +74,21 @@
             </tr>
             <tr>
                 <td>
-                    $@Html.DisplayFor(model => item.BikePrice)
+                    
+                    @{ 
+                        if(item.BikeSaleAmt<1)
+                        {
+                            double saleAmt = ((double)item.BikePrice * (double)item.BikeSaleAmt);
+                            double salePrice = (double)item.BikePrice - saleAmt;
+                            @Html.Raw("<del>$" + item.BikePrice+"</del> $"+salePrice.ToString());
+                        }
+                        else
+                        {
+                            @Html.Raw("$");
+                           @Html.DisplayFor(model => item.BikePrice);
+                        }
+                    }
+                    
                 </td>
             </tr>
         }

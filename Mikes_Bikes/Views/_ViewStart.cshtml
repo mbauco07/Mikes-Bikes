@@ -1,6 +1,6 @@
 ﻿@{
     string admin = System.Web.HttpContext.Current.Session["Admin"] as String;
-    admin = "true";
+    admin = "false";
     if (admin == "true")
     {
         Layout = "~/Views/Shared/_LayoutAdmin.cshtml";

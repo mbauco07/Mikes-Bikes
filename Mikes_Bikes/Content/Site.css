@@ -22,3 +22,18 @@ select,
 textarea {
     max-width: 280px;
 }
+body{
+    color:peru;
+}
+.navbar-inverse {
+    background-color: #003380;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}

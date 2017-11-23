@@ -210,57 +210,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711091446345_InitialCreate.cs" />
-    <Compile Include="Migrations\201711091446345_InitialCreate.Designer.cs">
-      <DependentUpon>201711091446345_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201711231346597_Initial.cs" />
+    <Compile Include="Migrations\201711231346597_Initial.Designer.cs">
+      <DependentUpon>201711231346597_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711211526469_Added require annotatios to bike class.cs" />
-    <Compile Include="Migrations\201711211526469_Added require annotatios to bike class.Designer.cs">
-      <DependentUpon>201711211526469_Added require annotatios to bike class.cs</DependentUpon>
+    <Compile Include="Migrations\201711231347334_test_1.cs" />
+    <Compile Include="Migrations\201711231347334_test_1.Designer.cs">
+      <DependentUpon>201711231347334_test_1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711211528202_addeding require.cs" />
-    <Compile Include="Migrations\201711211528202_addeding require.Designer.cs">
-      <DependentUpon>201711211528202_addeding require.cs</DependentUpon>
+    <Compile Include="Migrations\201711231349171_test_2.cs" />
+    <Compile Include="Migrations\201711231349171_test_2.Designer.cs">
+      <DependentUpon>201711231349171_test_2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711211552174_NothingReally.cs" />
-    <Compile Include="Migrations\201711211552174_NothingReally.Designer.cs">
-      <DependentUpon>201711211552174_NothingReally.cs</DependentUpon>
+    <Compile Include="Migrations\201711231353396_added_requires.cs" />
+    <Compile Include="Migrations\201711231353396_added_requires.Designer.cs">
+      <DependentUpon>201711231353396_added_requires.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711211554553_TestAddFieldWithRequired.cs" />
-    <Compile Include="Migrations\201711211554553_TestAddFieldWithRequired.Designer.cs">
-      <DependentUpon>201711211554553_TestAddFieldWithRequired.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711211557406_fixed.cs" />
-    <Compile Include="Migrations\201711211557406_fixed.Designer.cs">
-      <DependentUpon>201711211557406_fixed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711211601203_a.cs" />
-    <Compile Include="Migrations\201711211601203_a.Designer.cs">
-      <DependentUpon>201711211601203_a.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711211602124_b.cs" />
-    <Compile Include="Migrations\201711211602124_b.Designer.cs">
-      <DependentUpon>201711211602124_b.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711211603548_c.cs" />
-    <Compile Include="Migrations\201711211603548_c.Designer.cs">
-      <DependentUpon>201711211603548_c.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711211605358_BackAsItWas.cs" />
-    <Compile Include="Migrations\201711211605358_BackAsItWas.Designer.cs">
-      <DependentUpon>201711211605358_BackAsItWas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711211607504_tryingAgain.cs" />
-    <Compile Include="Migrations\201711211607504_tryingAgain.Designer.cs">
-      <DependentUpon>201711211607504_tryingAgain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711211613061_tookawayrequires.cs" />
-    <Compile Include="Migrations\201711211613061_tookawayrequires.Designer.cs">
-      <DependentUpon>201711211613061_tookawayrequires.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711211614074_tookawayrequires1.cs" />
-    <Compile Include="Migrations\201711211614074_tookawayrequires1.Designer.cs">
-      <DependentUpon>201711211614074_tookawayrequires1.cs</DependentUpon>
+    <Compile Include="Migrations\201711231355501_forgot_some_requires.cs" />
+    <Compile Include="Migrations\201711231355501_forgot_some_requires.Designer.cs">
+      <DependentUpon>201711231355501_forgot_some_requires.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Authentication\AccountViewModels.cs" />
@@ -368,10 +336,7 @@
     <Content Include="Views\Home\BikeSafety.cshtml" />
     <Content Include="Views\Home\Careers.cshtml" />
     <Content Include="Views\Home\ReturnPolicy.cshtml" />
-    <Content Include="Views\Orders\Create.cshtml" />
-    <Content Include="Views\Orders\Delete.cshtml" />
     <Content Include="Views\Orders\Details.cshtml" />
-    <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\Ratings\Create.cshtml" />
     <Content Include="Views\Ratings\Delete.cshtml" />
@@ -392,12 +357,16 @@
     <Content Include="Views\Carts\Checkout.cshtml" />
     <Content Include="Views\Shared\_ReviewForm.cshtml" />
     <Content Include="Views\Shared\_Reviews.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Compare\Create.cshtml" />
     <Content Include="Views\Compare\Delete.cshtml" />
     <Content Include="Views\Compare\Details.cshtml" />
     <Content Include="Views\Compare\Edit.cshtml" />
     <Content Include="Views\Compare\Index.cshtml" />
     <Content Include="Views\Compare\CompareView.cshtml" />
+=======
+    <Content Include="Views\Bikes\LowStock.cshtml" />
+>>>>>>> ac6a60256ee55deef3358eb57805ef2301ec9257
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -418,44 +387,20 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711091446345_InitialCreate.resx">
-      <DependentUpon>201711091446345_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711231346597_Initial.resx">
+      <DependentUpon>201711231346597_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211526469_Added require annotatios to bike class.resx">
-      <DependentUpon>201711211526469_Added require annotatios to bike class.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711231347334_test_1.resx">
+      <DependentUpon>201711231347334_test_1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211528202_addeding require.resx">
-      <DependentUpon>201711211528202_addeding require.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711231349171_test_2.resx">
+      <DependentUpon>201711231349171_test_2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211552174_NothingReally.resx">
-      <DependentUpon>201711211552174_NothingReally.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711231353396_added_requires.resx">
+      <DependentUpon>201711231353396_added_requires.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211554553_TestAddFieldWithRequired.resx">
-      <DependentUpon>201711211554553_TestAddFieldWithRequired.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211557406_fixed.resx">
-      <DependentUpon>201711211557406_fixed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211601203_a.resx">
-      <DependentUpon>201711211601203_a.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211602124_b.resx">
-      <DependentUpon>201711211602124_b.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211603548_c.resx">
-      <DependentUpon>201711211603548_c.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211605358_BackAsItWas.resx">
-      <DependentUpon>201711211605358_BackAsItWas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211607504_tryingAgain.resx">
-      <DependentUpon>201711211607504_tryingAgain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211613061_tookawayrequires.resx">
-      <DependentUpon>201711211613061_tookawayrequires.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211614074_tookawayrequires1.resx">
-      <DependentUpon>201711211614074_tookawayrequires1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711231355501_forgot_some_requires.resx">
+      <DependentUpon>201711231355501_forgot_some_requires.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
