@@ -7,13 +7,13 @@ namespace Mikes_Bikes.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addedingrequire : IMigrationMetadata
+    public sealed partial class added_requires : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedingrequire));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(added_requires));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711211528202_addeding require"; }
+            get { return "201711231353396_added_requires"; }
         }
         
         string IMigrationMetadata.Source
