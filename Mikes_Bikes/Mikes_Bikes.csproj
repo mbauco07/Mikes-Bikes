@@ -278,6 +278,11 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\amex.png" />
+    <Content Include="Content\Images\bitcoin.png" />
+    <Content Include="Content\Images\mastercard.png" />
+    <Content Include="Content\Images\paypal.png" />
+    <Content Include="Content\Images\visa.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Images\bike1.png" />
     <Content Include="Content\Images\bike1_SLS.jpg" />
@@ -378,12 +383,9 @@
     <Content Include="Views\Ratings\Edit.cshtml" />
     <Content Include="Views\Ratings\Index.cshtml" />
     <Content Include="Views\Shared\PartialBike.cshtml" />
-
-    <Content Include="Views\Carts\Checkout.cshtml" />
     <Content Include="Views\Shared\_ReviewForm.cshtml" />
     <Content Include="Views\Shared\_Reviews.cshtml" />
     <Content Include="Views\Shared\_LayoutCustomer.cshtml" />
-
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Category\Delete.cshtml" />
     <Content Include="Views\Category\Details.cshtml" />
@@ -393,7 +395,9 @@
     <Content Include="Views\Carts\Checkout.cshtml" />
     <Content Include="Views\Shared\_ReviewForm.cshtml" />
     <Content Include="Views\Shared\_Reviews.cshtml" />
-
+    <Content Include="Views\Carts\Payment.cshtml" />
+    <Content Include="Views\Carts\ProcessGood.cshtml" />
+    <Content Include="Views\Carts\ProcessBad.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

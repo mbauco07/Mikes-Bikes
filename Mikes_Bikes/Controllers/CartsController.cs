@@ -21,6 +21,23 @@ namespace Mikes_Bikes.Controllers
             return View(carts.ToList());
         }
 
+        public ActionResult Checkout()
+        {
+            var carts = db.Carts.Include(c => c.Bike);
+            return View(carts.ToList());
+        }
+
+
+        public ActionResult Payment()
+        {
+            return View();
+        }
+
+        public ActionResult Process()
+        {
+            return View("ProcessGood");
+        }
+
         // GET: Carts/Details/5
         public ActionResult Details(int? id)
         {

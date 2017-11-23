@@ -280,8 +280,6 @@ namespace Mikes_Bikes.Controllers
             int custId = 1;
             // This will have to be retrieved from the textbox on the ItemView page. 
 
-            int qty =0;
-
             int qty = q;
 
             double price = bike.BikePrice;
