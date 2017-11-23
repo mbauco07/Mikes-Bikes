@@ -16,8 +16,14 @@ namespace Mikes_Bikes.Controllers
         private Mikes_BikesContext db = new Mikes_BikesContext();
 
         [ChildActionOnly]
-        public PartialViewResult Review()
+        public PartialViewResult Review(string BikeID)
         {
+            //get the rating from the databse
+            //calcualte the average
+            if (db.Ratings.Where(x => x.BikeID == BikeID).Select(x => x.Rate).Count() > 0) //has there been any reviews 
+                ViewBag.avgRate = db.Ratings.Where(x => x.BikeID == BikeID).Select(x => x.Rate).Average();
+            else
+                ViewBag.avgRate = "Sorry no reviews yet";
             return PartialView("_ReviewForm");
          }
 
@@ -29,7 +35,7 @@ namespace Mikes_Bikes.Controllers
        // [ValidateAntiForgeryToken]
         public ActionResult Review(string BikeID, int ratingNum, string ratingString)
         {
-            //int custid = 1;
+            int custid = 1;
             Rating newRating = new Rating();
             /*if (ModelState.IsValid)
             {
@@ -39,31 +45,29 @@ namespace Mikes_Bikes.Controllers
             //the rating strng can not be empty
             if (string.IsNullOrWhiteSpace(ratingString))
             {
-                ViewBag.BikeID = "";
-                ViewBag.ratingNum = "";
-                ViewBag.ratingString = "";
                 ViewBag.completed = "sorry review can not be blank";
             }
             else
             {
-                ViewBag.BikeID = BikeID;
-                ViewBag.ratingNum = ratingNum;
-                ViewBag.ratingString = ratingString;
-                ViewBag.completed = "review was sent";
 
+                ViewBag.completed = "review was sent";
                 newRating.BikeID = BikeID;
-                //newRating.CustomerID = custid;
+                newRating.CustomerID = custid; //this is beeingn used for testing ONLY
                 newRating.Rate = ratingNum;
                 newRating.Review = ratingString;
-               /* if (ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     db.Ratings.Add(newRating);
                     db.SaveChanges();
                     return PartialView("_ReviewForm");
-                }*/
+                }
 
             }
-
+            //we need to recalculate the new average rating
+            //get the rating from the databse
+            //calcualte the average
+            Double averageRating = db.Ratings.Where(x => x.BikeID == BikeID) .Select(x => x.Rate).Average();
+            ViewBag.avgRate = averageRating;
 
             return PartialView("_ReviewForm");
         }
@@ -280,7 +284,7 @@ namespace Mikes_Bikes.Controllers
             int custId = 1;
             // This will have to be retrieved from the textbox on the ItemView page. 
 
-            int qty =0;
+            //int qty =0;
 
             int qty = q;
 

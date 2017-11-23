@@ -21,12 +21,20 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Careers", "Careers", "Home")</li>
-                    <li>@Html.ActionLink("About Us", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Return Policy", "ReturnPolicy", "Home")</li>
-                    <li>@Html.ActionLink("Bike Safety", "BikeSafety", "Home")</li>
-                    <li>@Html.ActionLink("Customer List", "Index", "CustomerBikeList")</li>
+                    <!--Information Drop Down-->
+                    <div class="navbar-header" style="position:relative">
+                        <a class="btn navbar-btn" href="#" data-toggle="dropdown">Information<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Return Policy", "ReturnPolicy", "Home")</li>
+                            <li>@Html.ActionLink("Safety On a Bike", "BikeSafety", "Home")</li>
+                            <li>@Html.ActionLink("Contact Us!", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Careers", "Careers", "Home")</li>
+                            <li>@Html.ActionLink("About Us", "About", "Home")</li>
+                        </ul>
+                    </div>
+                    <!--Regular Action Links to Views-->
+                    <li>@Html.ActionLink("Categories", "Index", "Category")</li>
+                    <li>@Html.ActionLink("List Of Bikes", "Index", "CustomerBikeList")</li>
                     <li><div id="google_translate_element"></div></li>
                     <script type="text/javascript">
                         function googleTranslateElementInit() {
