@@ -269,5 +269,33 @@ namespace Mikes_Bikes.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult LowStock(string Stock="")
+        {       
+            var Bikes = db.Bikes;
+            int lowStock = 0;
+            Int32.TryParse(Stock, out lowStock);
+            string color = "LimeGreen";
+            foreach (Bike bike in Bikes)
+            {
+                //Changes text colour of bikes in list to show which bikes stocks levels are at critical lows
+                if (bike.BikeStock <= lowStock)
+                {
+                    color = "red";
+                }
+                //Changes text colour of bikes in lisst to show which bikes stocks levels are at risk
+                if (bike.BikeStock <= lowStock + 2 && bike.BikeStock > lowStock)
+                {
+                    color = "gold";
+                }
+                bike.BikeName = "<font color="+color+">" + bike.BikeName + "</font>";
+                bike.BikeColor = "<font color=" + color + ">" + bike.BikeColor + "</font>";
+                bike.BikeMfctr = "<font color=" + color + ">" + bike.BikeMfctr + "</font>";
+                //Allows program to add tags to stock and price which are both ints
+                //Placed in bikedescen and bikedescfr which are both string based properties
+                bike.BikeDescEN = "<font color=" + color + ">" + bike.BikeStock + "</font>";
+                bike.BikeDescFR = "<font color=" + color + ">" + bike.BikePrice + "</font>";
+            }
+            return View(Bikes);
+        }
     }
 }
