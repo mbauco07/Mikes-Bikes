@@ -15,15 +15,34 @@ namespace Mikes_Bikes.Controllers
         private Mikes_BikesContext db = new Mikes_BikesContext();
 
         // GET: Orders
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
-            var orders = db.Orders.Include(o => o.Customer);
-            return View(orders.ToList());
+            id = "1";
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var orderDetails = db.Details;
+            List<String> bikeList = new List<String>();
+            foreach(Detail detail in orderDetails)
+            {
+                if(detail.OrderID.ToString()==id)
+                {
+                    string bikeName = db.Bikes.Find(detail.BikeID).BikeName;
+                    bikeList.Add(bikeName);
+                }
+            }
+            if (orderDetails == null)
+            {
+                return HttpNotFound();
+            }
+            return View(bikeList);
         }
         //DARIO FIX THIS
         // GET: Orders/Details/5
         public ActionResult Details(string id)
         {
+            id = "1";
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

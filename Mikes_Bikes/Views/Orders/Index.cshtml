@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Mikes_Bikes.Models.Order>
+﻿@model IEnumerable<Mikes_Bikes.Models.Bike>
 
 @{
     ViewBag.Title = "Index";
@@ -12,31 +12,17 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Customer.CustFName)
+            @Html.Raw("Bike Name")
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderPrice)
-        </th>
-        <th></th>
+      
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Customer.CustFName)
+            @Html.DisplayFor(modelItem => item.BikeName)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrderDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrderPrice)
-        </td>
-        <td>      
-            @Html.ActionLink("Details", "Details", new { id=item.OrderID }) 
-        </td>
+       
     </tr>
 }
 
