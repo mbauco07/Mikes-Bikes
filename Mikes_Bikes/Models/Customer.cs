@@ -31,6 +31,9 @@ namespace Mikes_Bikes.Models
         [DisplayName("Password")]
         [Required(ErrorMessage = "Password Required")]
         public string CustPwd { get; set; }
+
+
+        public int Admin { get; set; }
     }
 
 }
