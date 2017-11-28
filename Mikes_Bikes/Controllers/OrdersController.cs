@@ -44,21 +44,21 @@ namespace Mikes_Bikes.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var orderDetails = db.Details;
-            List<String> bikeList = new List<String>();
-            foreach(Detail detail in orderDetails)
+            var orderDetails = db.Orders;
+            List<String> Order = new List<String>();
+            List<Order> list = new List<Models.Order>();
+            foreach(Order detail in orderDetails)
             {
                 if(detail.OrderID.ToString()==id)
                 {
-                    string bikeName = db.Bikes.Find(detail.BikeID).BikeName;
-                    bikeList.Add(bikeName);
+                    list.Add(detail);
                 }
             }
             if (orderDetails == null)
             {
                 return HttpNotFound();
             }
-            return View(bikeList);
+            return View(list);
         }
         //DARIO FIX THIS
         // GET: Orders/Details/5

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Mikes_Bikes.Models.Bike>
+﻿@model IEnumerable<Mikes_Bikes.Models.Order>
 
 @{
     ViewBag.Title = "Your Past Orders";
@@ -9,17 +9,29 @@
 <table class="table">
     <tr>
         <th>
-            @Html.Raw("Bike Name")
+            @Html.Raw("Order ID")
         </th>
-      
+        <th>
+            @Html.Raw("Order Price")
+        </th>
+        <th>
+            @Html.Raw("Order Date")
+        </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.BikeName)
+            @Html.DisplayFor(modelItem => item.OrderID)
         </td>
-       
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+
+
     </tr>
 }
 
