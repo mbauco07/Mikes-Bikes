@@ -15,23 +15,13 @@ namespace Mikes_Bikes.Controllers
         private Mikes_BikesContext db = new Mikes_BikesContext();
 
         // GET: Compare
-        public ActionResult Index()
+        public ActionResult Index(string compare1 = "", string compare2 = "")
         {
-            return View(db.Bikes.ToList());
-        }
-        
-        [HttpPost]
-        public ActionResult CompareView(string compare, bool check = false)
-        {
-            var compares = from bike in db.Bikes select bike;
+            var bikes = from bike in db.Bikes select bike;
 
-            if (check)
-            {
-                var compares2 = from bike in db.Bikes where bike.BikeName == compare select bike;
-                return View(compares2);
-            }
+            bikes = String.IsNullOrEmpty(compare1) ? bikes : bikes.Where(bike => bike.BikeName == compare1 || bike.BikeName == compare2 );
 
-            return View(compares);
+            return View(bikes.ToList());
         }
 
         // GET: Compare/Details/5

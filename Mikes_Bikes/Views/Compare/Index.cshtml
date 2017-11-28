@@ -8,33 +8,107 @@
 <br />
 <h2>Choose Bikes to Compare</h2>
 
-@using (Html.BeginForm("CompareView"))
+@using (Html.BeginForm("Index", "Compare", FormMethod.Get))
 {
-    <table class="table">
+    <table class="table1">
         <tr>
             <th>
                 Compare
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BikeName)
-            </th>
             <th></th>
         </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    <!--@Html.CheckBox("CompareBike")-->
-                    <input type="checkbox" name="compare" id="@item.BikeName" value="true" />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BikeName)
-                </td>
-            </tr>
-        }
+        <tr>
+            <td>
+                <input type="text" id="compare1" name="compare1" placeholder="First Compare Item" />
+            </td>
+            <td>
+                <input type="text" id="compare2" name="compare2" placeholder="First Compare Item" />
+            </td>
+        </tr>
 
     </table>
 
     <input type="submit" value="Compare" id="SubmitCompare" />
 }
+<br />
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeColor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeMfctr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeDescEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeDescFR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeSaleAmt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeDisplayed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BikeStock)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <!----------- This is here TEMPORARILY ----------->
+            <td>
+                @Html.DisplayFor(model => item.BikeID)
+            </td>
+            <!------------------------------------------------>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeColor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeMfctr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeDescEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeDescFR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeSaleAmt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeDisplayed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeStock)
+            </td>
+        </tr>
+    }
+</table>
