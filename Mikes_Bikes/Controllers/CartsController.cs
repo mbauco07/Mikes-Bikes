@@ -18,6 +18,9 @@ namespace Mikes_Bikes.Controllers
         public ActionResult Index()
         {
             var carts = db.Carts.Include(c => c.Bike);
+
+           // ViewBag.Subtotal = db.Carts.Sum(x => x.Bike.BikePrice);
+           
             return View(carts.ToList());
         }
 

@@ -404,7 +404,7 @@
                 var amexExpDate = $('AmexExpDate').val();
                 var amexCardCVC = $('#AmexCVC').val();
 
-                
+
                 // Error spans
                 var AmexNameErrorSpan = document.getElementById("AmexNameError");
                 var AmexNumErrorSpan = document.getElementById("AmexCardNumError");
@@ -444,8 +444,14 @@
                 break;
         }
         // Redirect if no errors
-        if (errors == 0)
+        if (errors == 0) {
+            $.ajax({
+                url: '~/OrdersController/AddOrder',
+                }).done(function () {
+                alert('Added');
+            });
             window.location.href = "ProcessGood";
+        }
     }
 
 </script>

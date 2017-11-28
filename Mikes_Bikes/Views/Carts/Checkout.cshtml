@@ -40,7 +40,20 @@
         </tr>
 }
 </table>
-
+@{ var subtotal = Model.Sum(p => p.Bike.BikePrice);}
+@{ double shipping = 15.00;}
+@{ var taxes = @Math.Round(subtotal * 0.15, 2);}
+<p>Subtotal: @subtotal $</p>
+<p>Taxes: @taxes $</p>
+@if (subtotal > 150){
+    shipping = 20.00;
+}
+<p>Shipping: @shipping$</p>
+@{ var total = subtotal + shipping + taxes;}
+<p>Total: @total$</p>
+@{
+    ViewBag.Total = @total;
+}
 <input type="button" id="payment" value="Proceed to payment" name="payment"  class="btn btn-default" onclick="location.href='@Url.Action("Payment","Carts")'" />
 
 

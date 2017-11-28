@@ -14,6 +14,28 @@ namespace Mikes_Bikes.Controllers
     {
         private Mikes_BikesContext db = new Mikes_BikesContext();
 
+        [HttpPost]
+        // [ValidateAntiForgeryToken]
+        public ActionResult AddOrder()
+        {
+            int custId = 1;
+            Order newOrder = new Order();
+
+                ViewBag.completed = "review was sent";
+                newOrder.CustomerID = custId;
+                newOrder.DetailID = 1; //this is beeing used for testing ONLY
+                newOrder.OrderDate = new DateTime();
+                newOrder.OrderPrice = @ViewBag.Total;
+                if (ModelState.IsValid)
+                {
+                    db.Orders.Add(newOrder);
+                    db.SaveChanges();
+                    return PartialView("_ReviewForm");
+                }
+            return PartialView("_ReviewForm");
+                
+        }
+
         // GET: Orders
         public ActionResult Index()
         {
