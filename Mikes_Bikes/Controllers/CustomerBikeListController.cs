@@ -284,11 +284,10 @@ namespace Mikes_Bikes.Controllers
             int custId = 1;
             // This will have to be retrieved from the textbox on the ItemView page. 
 
-<<<<<<< HEAD
+
             //int qty =0;
-=======
-            
->>>>>>> 00a0ea6e61fd129a5191ebbb326497fdddbf6258
+
+
 
             int qty = q;
 
