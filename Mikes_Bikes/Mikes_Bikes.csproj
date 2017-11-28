@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -359,7 +360,6 @@
     <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\BikesInCategory.cshtml" />
-    <Content Include="Views\Carts\Checkout.cshtml" />
     <Content Include="Views\Shared\_ReviewForm.cshtml" />
     <Content Include="Views\Shared\_Reviews.cshtml" />
     <Content Include="Views\Carts\Payment.cshtml" />
@@ -372,6 +372,10 @@
     <Content Include="Views\Compare\Index.cshtml" />
     <Content Include="Views\Compare\CompareView.cshtml" />
     <Content Include="Views\Bikes\LowStock.cshtml" />
+    <Content Include="Views\Shared\Visa.cshtml" />
+    <Content Include="Views\Shared\Amex.cshtml" />
+    <Content Include="Views\Shared\Mastercard.cshtml" />
+    <Content Include="Views\Shared\Paypal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

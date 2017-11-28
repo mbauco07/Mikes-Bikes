@@ -78,6 +78,8 @@
 
     var theCountriesAndStates;
 
+    var paymentMethod = "none";
+
     $(document).ready(pageIsLoaded);
 
     $(document).on('change', '#paymentCountry', function () {
@@ -87,6 +89,41 @@
     function pageIsLoaded() {
         theCountriesAndStates = JSON.parse(countriesAndStatesJSON);
         checkCountry();
+        // Enable clicking for all payment methods
+        $("#PaypalBtn").click(showPaypal);
+        $("#VisaBtn").click(showVisa);
+        $("#MastercardBtn").click(showMastercard);
+        $("#AmexBtn").click(showAmex);
+
+        // Blur General Form
+        $("#paymentFName").blur(blurTextBox);
+        $("#paymentLName").blur(blurTextBox);
+        $("#paymentAddress1").blur(blurTextBox);
+        $("#paymentCity").blur(blurTextBox);
+        $("#paymentTel").blur(blurTextBox);
+        $("#paymentEmail").blur(blurTextBox);
+
+        // Blur Paypal
+        $("#PaypalEmail").blur(blurTextBox);
+        $("#PaypalPassword").blur(blurTextBox);
+
+        // Blur Visa
+        $("#VisaName").blur(blurTextBox);
+        $("#VisaCardNum").blur(blurTextBox);
+        $("#VisaExpDate").blur(blurTextBox);
+        $("#VisaCVC").blur(blurTextBox);
+
+        // Blur Mastercard
+        $("#MastercardName").blur(blurTextBox);
+        $("#MastercardCardNum").blur(blurTextBox);
+        $("#MastercardExpDate").blur(blurTextBox);
+        $("#MastercardCVC").blur(blurTextBox);
+
+        // Blur AMEX
+        $("#AmexName").blur(blurTextBox);
+        $("#AmexCardNum").blur(blurTextBox);
+        $("#AmexExpDate").blur(blurTextBox);
+        $("#AmexCVC").blur(blurTextBox);
     }
 
     function checkCountry() {
@@ -108,39 +145,348 @@
                 theStates.innerHTML += '<option>' + theCountriesAndStates[index]["name"] + '</option>';
             }
         }
+    }
 
+    function showPaypal() {
+        // Disable Visa if already visible
+        if ($("#paymentVisa").is(':visible'))
+            $('#paymentVisa').hide();
+        // Disable Mastercard if already visible
+        if ($("#paymentMastercard").is(':visible'))
+            $('#paymentMastercard').hide();
+        // Disable Amex if already visible
+        if ($("#paymentAmex").is(':visible'))
+            $('#paymentAmex').hide();
+
+        $('#paymentPaypal').slideToggle();
+        paymentMethod = "paypal";
+    }
+
+    function showVisa() {
+        // Disable Paypal if already visible
+        if ($("#paymentPaypal").is(':visible'))
+            $('#paymentPaypal').hide();
+        // Disable Mastercard if already visible
+        if ($("#paymentMastercard").is(':visible'))
+            $('#paymentMastercard').hide();
+        // Disable Amex if already visible
+        if ($("#paymentAmex").is(':visible'))
+            $('#paymentAmex').hide();
+
+        $('#paymentVisa').slideToggle();
+        paymentMethod = "visa";
+    }
+
+    function showMastercard() {
+        // Disable Paypal if already visible
+        if ($("#paymentPaypal").is(':visible'))
+            $('#paymentPaypal').hide();
+        // Disable Visa if already visible
+        if ($("#paymentVisa").is(':visible'))
+            $('#paymentVisa').hide();
+        // Disable Amex if already visible
+        if ($("#paymentAmex").is(':visible'))
+            $('#paymentAmex').hide();
+
+        $('#paymentMastercard').slideToggle();
+        paymentMethod = "mastercard";
+    }
+
+    function showAmex() {
+        // Disable Paypal if already visible
+        if ($("#paymentPaypal").is(':visible'))
+            $('#paymentPaypal').hide();
+        // Disable Mastercard if already visible
+        if ($("#paymentMastercard").is(':visible'))
+            $('#paymentMastercard').hide();
+        // Disable Visa if already visible
+        if ($("#paymentVisa").is(':visible'))
+            $('#paymentVisa').hide();
+
+        $('#paymentAmex').slideToggle();
+        paymentMethod = "amex";
+    }
+
+    function blurTextBox() {
+
+        var theId = this.id;
+        var theErrorSpan = document.getElementById(theId + "Error");
+
+        if (this.value == "") {
+            theErrorSpan.innerHTML = "Do Not Leave Blank!";
+            theErrorSpan.style.color = "red";
+        }
+        else {
+            theErrorSpan.innerHTML = "";
+        }
+    }
+
+    function validateForm() {
+
+        // Keeps track of amount of errors
+        var errors = 0;
+
+        // Regex patterns
+        var paypalPattern = new RegExp("[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
+        var visaPattern = new RegExp("^4[0-9]{12}(?:[0-9]{3})?$");
+        var mastercardPattern = new RegExp("^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$");
+        var amexPattern = new RegExp("^3[47][0-9]{13}$ ");
+        var CVCPattern = new RegExp("^[0-9]{3,4}$");
+
+        // Values for general form
+        var Fname = $('#paymentFName').val();
+        var LName = $('#paymentLName').val();
+        var Adr1 = $('#paymentAddress1').val();
+        var City = $('#paymentCity').val();
+        var Tel = $('#paymentTel').val();
+        var Email = $('#paymentEmail').val();
+
+        // Error Spans for general form
+        var FNameErrorSpan = document.getElementById("paymentFNameError");
+        var LNameErrorSpan = document.getElementById("paymentLNameError");
+        var Adr1ErrorSpan = document.getElementById("paymentAddress1Error");
+        var CityErrorSpan = document.getElementById("paymentCityError");
+        var TelErrorSpan = document.getElementById("paymentTelError");
+        var EmailErrorSpan = document.getElementById("paymentEmailError");
+
+        // Check FName
+        if (Fname == "") {
+            FNameErrorSpan.innerHTML = "Cannot leave first name blank.";
+            FNameErrorSpan.style.color = "red";
+            errors++;
+        }
+
+        // Check LName
+        if (LName == "") {
+            LNameErrorSpan.innerHTML = "Cannot leave last name blank.";
+            LNameErrorSpan.style.color = "red";
+            errors++;
+        }
+
+        // Check Adr1
+        if (Adr1 == "") {
+            Adr1ErrorSpan.innerHTML = "Cannot leave address blank.";
+            Adr1ErrorSpan.style.color = "red";
+            errors++;
+        }
+
+        // Check City
+        if (City == "") {
+            CityErrorSpan.innerHTML = "Cannot leave city blank.";
+            CityErrorSpan.style.color = "red";
+            errors++;
+        }
+
+        // Check Tel
+        if (Tel == "") {
+            TelErrorSpan.innerHTML = "Cannot leave telephone blank.";
+            TelErrorSpan.style.color = "red";
+            errors++;
+        }
+
+        // Check Email
+        if (Email == "") {
+            EmailErrorSpan.innerHTML = "Cannot leave email blank.";
+            EmailErrorSpan.style.color = "red";
+            errors++;
+        }
+
+        // All payment validation
+        switch (paymentMethod) {
+            case 'paypal':
+                // Textbox Values
+                var paypalEmail = $('#PaypalEmail').val();
+                var paypalPass = $('#PaypalPassword').val();
+
+                // Error spans
+                var PaypalEmailErrorSpan = document.getElementById("PaypalEmailError");
+                var PaypalPasswordErrorSpan = document.getElementById("PaypalPasswordError");
+
+                // Check Paypal Email
+                if (!paypalPattern.test(paypalEmail)) {
+                    PaypalEmailErrorSpan.innerHTML = "Invalid Paypal Email";
+                    PaypalEmailErrorSpan.style.color = "red";
+                    errors++;
+                }
+                // Check Password
+                if (paypalPass == "") {
+                    PaypalPasswordErrorSpan.innerHTML = "Cannot leave password blank.";
+                    PaypalPasswordErrorSpan.style.color = "red";
+                    errors++;
+                }
+                break;
+            case 'visa':
+                // Textbox Values
+                var visaName = $('#VisaName').val();
+                var visaCardNum = $('#VisaCardNum').val();
+                var visaExpDate = $('VisaExpDate').val();
+                var visaCardCVC = $('#VisaCVC').val();
+
+                // Error spans
+                var VisaNameErrorSpan = document.getElementById("VisaNameError");
+                var VisaNumErrorSpan = document.getElementById("VisaCardNumError");
+                var VisaExpDateErrorSpan = document.getElementById("VisaExpDateError");
+                var VisaCVCErrorSpan = document.getElementById("VisaCVCError");
+
+                // Check Visa Name
+                if (visaName == "") {
+                    VisaNameErrorSpan.innerHTML = "Cannot leave name blank.";
+                    VisaNameErrorSpan.style.color = "red";
+                    errors++;
+                }
+
+                // Check Visa Num
+                if (!visaPattern.test(visaCardNum)) {
+                    VisaNumErrorSpan.innerHTML = "Invalid Visa Number";
+                    VisaNumErrorSpan.style.color = "red";
+                    errors++;
+                }
+
+                // Check Visa Exp Date
+                if (visaExpDate == "") {
+                    VisaExpDateErrorSpan.innerHTML = "Cannot leave expiry date blank.";
+                    VisaExpDateErrorSpan.style.color = "red";
+                    errors++;
+                }
+
+                // Check Visa CVC
+                if (!CVCPattern.test(visaCardCVC)) {
+                    VisaCVCErrorSpan.innerHTML = "Invalid CVC Number";
+                    VisaCVCErrorSpan.style.color = "red";
+                    errors++;
+                }
+                break;
+            case 'mastercard':
+                // Textbox Values
+                var mastercardName = $('#MastercardName').val();
+                var mastercardCardNum = $('#MastercardCardNum').val();
+                var mastercardExpDate = $('MastercardExpDate').val();
+                var mastercardCardCVC = $('#MastercardCVC').val();
+
+                // Error spans
+                var MastercardNameErrorSpan = document.getElementById("MastercardNameError");
+                var MastercardNumErrorSpan = document.getElementById("MastercardCardNumError");
+                var MastercardExpDateErrorSpan = document.getElementById("MastercardExpDateError");
+                var MastecardCVCErrorSpan = document.getElementById("MastercardCVCError");
+
+                // Check Mastercard Name
+                if (mastercardName == "") {
+                    MastercardNameErrorSpan.innerHTML = "Cannot leave name blank.";
+                    MastercardNameErrorSpan.style.color = "red";
+                    errors++;
+                }
+
+                // Check Mastercard Num
+                if (!mastercardPattern.test(mastercardCardNum)) {
+                    MastercardNumErrorSpan.innerHTML = "Invalid Mastercard Number";
+                    MastercardNumErrorSpan.style.color = "red";
+                    errors++;
+                }
+
+                // Check Mastercard Exp Date
+                if (mastercardExpDate == "") {
+                    MastercardExpDateErrorSpan.innerHTML = "Cannot leave expiry date blank.";
+                    MastercardExpDateErrorSpan.style.color = "red";
+                    errors++;
+                }
+
+                // Check Mastercard CVC
+                if (!CVCPattern.test(mastercardCardCVC)) {
+                    MastecardCVCErrorSpan.innerHTML = "Invalid CVC Number";
+                    MastecardCVCErrorSpan.style.color = "red";
+                    errors++;
+                }
+                break;
+            case 'amex':
+                // Textbox Values
+                var amexName = $('#AmexName').val();
+                var amexCardNum = $('#AmexCardNum').val();
+                var amexExpDate = $('AmexExpDate').val();
+                var amexCardCVC = $('#AmexCVC').val();
+
+                
+                // Error spans
+                var AmexNameErrorSpan = document.getElementById("AmexNameError");
+                var AmexNumErrorSpan = document.getElementById("AmexCardNumError");
+                var AmexExpDateErrorSpan = document.getElementById("AmexExpDateError");
+                var AmexCVCErrorSpan = document.getElementById("AmexCVCError");
+
+                // Check Amex Name
+                if (amexName == "") {
+                    AmexNameErrorSpan.innerHTML = "Cannot leave name blank.";
+                    AmexNameErrorSpan.style.color = "red";
+                    errors++;
+                }
+
+                // Check Amex Num
+                if (!amexPattern.test(amexCardNum)) {
+                    AmexNumErrorSpan.innerHTML = "Invalid Amex Number";
+                    AmexNumErrorSpan.style.color = "red";
+                    errors++;
+                }
+
+                // Check Amex Exp Date
+                if (amexExpDate == "") {
+                    AmexExpDateErrorSpan.innerHTML = "Cannot leave expiry date blank.";
+                    AmexExpDateErrorSpan.style.color = "red";
+                    errors++;
+                }
+
+                // Check Amex CVC
+                if (!CVCPattern.test(amexCardCVC)) {
+                    AmexCVCErrorSpan.innerHTML = "Invalid CVC Number";
+                    AmexCVCErrorSpan.style.color = "red";
+                    errors++;
+                }
+                break;
+            default:
+                alert("Please choose a payment method.");
+                break;
+        }
+        // Redirect if no errors
+        if (errors == 0)
+            window.location.href = "ProcessGood";
     }
 
 </script>
 <h2>Payment</h2>
 <table>
-    <tr><label id="FNameLabel">First Name</label><input type="text" id="paymentFName" class="form-control"></input></tr></br>
-    <tr><label id="LNameLabel">Last Name</label><input type="text" id="paymentLName" class="form-control"></input></tr></br>
-    <tr><label id="Address1Label">Address 1</label><input type="text" id="paymentAddress1" class="form-control"></input></tr></br>
+    <tr><label id="FNameLabel">First Name</label><input type="text" id="paymentFName" class="form-control"></input><span id="paymentFNameError"></span></tr></br>
+    <tr><label id="LNameLabel">Last Name</label><input type="text" id="paymentLName" class="form-control"></input><span id="paymentLNameError"></span></tr></br>
+    <tr><label id="Address1Label">Address 1</label><input type="text" id="paymentAddress1" class="form-control"></input><span id="paymentAddress1Error"></span></tr></br>
     <tr><label id="Address2Label">Address 2</label><input type="text" id="paymentAddress2" class="form-control"></input></tr></br>
     <tr><label id="CountryLabel">Country</label><select name="paymentCountry" id="paymentCountry" class="form-control"><option value="CA">Canada</option><option value="US">United States</option></select></tr></br>
     <tr><label id="StateLabel">Province</label><select id="paymentState" class="form-control"></input></tr></br>
-    <tr><label id="CityLabel">City</label><input type="text" id="paymentCity" class="form-control"></input></tr></br>
-    <tr><label id="TelLabel">Telephone</label><input type="text" id="paymentTel" class="form-control"></input></tr></br>
-    <tr><label id="EmailLabel">Email</label><input type="text" id="paymentEmail" class="form-control"></input></tr></br>
+    <tr><label id="CityLabel">City</label><input type="text" id="paymentCity" class="form-control"></input><span id="paymentCityError"></span></tr></br>
+    <tr><label id="TelLabel">Telephone</label><input type="text" id="paymentTel" class="form-control"></input><span id="paymentTelError"></span></tr></br>
+    <tr><label id="EmailLabel">Email</label><input type="text" id="paymentEmail" class="form-control"></input><span id="paymentEmailError"></span></tr></br>
 </table>
 <h1>Payment Info</h1>
-<button>
+<button id="PaypalBtn"> 
     <img height="100%" src="~/Content/Images/paypal.png" />
 </button>
-<button>
+<button id="VisaBtn">
     <img height="100%" src="~/Content/Images/visa.png" />
 </button>
-<button>
+<button id="MastercardBtn">
     <img height="100%" src="~/Content/Images/mastercard.png" />
 </button>
-<button>
+<button id="AmexBtn">
     <img height="100%" src="~/Content/Images/amex.png" />
 </button>
-<button>
-    <img height="100%" src="~/Content/Images/bitcoin.png" />
-</button>
 </br>
-<input type="button" id="process" value="Process Payment" name="process" class="btn btn-default" onclick="location.href='@Url.Action("Process","Carts")'" />
+<div id="paymentPaypal" hidden>
+    @Html.Partial("Paypal")
+</div>
+<div id="paymentVisa" hidden>
+    @Html.Partial("Visa")
+</div>
+<div id="paymentMastercard" hidden>
+    @Html.Partial("Mastercard")
+</div>
+<div id="paymentAmex" hidden>
+    @Html.Partial("Amex")
+</div>
+<input type="submit" id="processBtn" value="Process Payment" name="process" class="btn btn-default" onclick="validateForm()" />
 
 

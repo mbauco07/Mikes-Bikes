@@ -33,9 +33,14 @@ namespace Mikes_Bikes.Controllers
             return View();
         }
 
-        public ActionResult Process()
+        public ActionResult ProcessGood()
         {
             return View("ProcessGood");
+        }
+
+        public ActionResult ProcessBad()
+        {
+            return View("ProcessBad");
         }
 
         // GET: Carts/Details/5
