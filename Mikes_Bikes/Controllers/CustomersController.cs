@@ -35,6 +35,20 @@ namespace Mikes_Bikes.Controllers
             return View(customer);
         }
 
+        public ActionResult Login([Bind(Include = "CustEmail,CustPwd")] Customer customer)
+        {
+
+            if (db.Customers.Where(x => x.CustEmail == customer.CustEmail).Select(x => x.CustEmail).Count() > 0 && db.Customers.Where(x => x.CustPwd == customer.CustPwd).Select(x => x.CustPwd).Count() > 0)
+            {
+                ViewBag.login = "Logged In";
+            }
+            else
+            {
+                ViewBag.login = "Username/Password is wrong" + "hello";
+            }
+            return View();
+        }
+
         // GET: Customers/Create
         public ActionResult Create()
         {
@@ -59,7 +73,6 @@ namespace Mikes_Bikes.Controllers
         }
 
         
-
         // GET: Customers/Edit/5
         public ActionResult Edit(int? id)
         {
