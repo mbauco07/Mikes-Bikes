@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -198,6 +199,7 @@
     <Compile Include="Controllers\BikesController.cs" />
     <Compile Include="Controllers\CartsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CompareController.cs" />
     <Compile Include="Controllers\CustomerBikeListController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\DetailsController.cs" />
@@ -246,6 +248,11 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\amex.png" />
+    <Content Include="Content\Images\bitcoin.png" />
+    <Content Include="Content\Images\mastercard.png" />
+    <Content Include="Content\Images\paypal.png" />
+    <Content Include="Content\Images\visa.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Images\bike1.png" />
     <Content Include="Content\Images\bike1_SLS.jpg" />
@@ -353,10 +360,22 @@
     <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\BikesInCategory.cshtml" />
-    <Content Include="Views\Carts\Checkout.cshtml" />
     <Content Include="Views\Shared\_ReviewForm.cshtml" />
     <Content Include="Views\Shared\_Reviews.cshtml" />
+    <Content Include="Views\Carts\Payment.cshtml" />
+    <Content Include="Views\Carts\ProcessGood.cshtml" />
+    <Content Include="Views\Carts\ProcessBad.cshtml" />
+    <Content Include="Views\Compare\Create.cshtml" />
+    <Content Include="Views\Compare\Delete.cshtml" />
+    <Content Include="Views\Compare\Details.cshtml" />
+    <Content Include="Views\Compare\Edit.cshtml" />
+    <Content Include="Views\Compare\Index.cshtml" />
+    <Content Include="Views\Compare\CompareView.cshtml" />
     <Content Include="Views\Bikes\LowStock.cshtml" />
+    <Content Include="Views\Shared\Visa.cshtml" />
+    <Content Include="Views\Shared\Amex.cshtml" />
+    <Content Include="Views\Shared\Mastercard.cshtml" />
+    <Content Include="Views\Shared\Paypal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -282,12 +282,16 @@ namespace Mikes_Bikes.Controllers
             }
             // This will have to be retrieved from the session variable.
             int custId = 1;
+<<<<<<< HEAD
             // This will have to be retrieved from the textbox on the ItemView page. 
 
 
             //int qty =0;
 
 
+=======
+            // This will have to be retrieved from the textbox on the ItemView page.
+>>>>>>> 7ccb88144463e48792802b9118be85b986f7fda7
 
             int qty = q;
 

@@ -10,134 +10,121 @@ using Mikes_Bikes.Models;
 
 namespace Mikes_Bikes.Controllers
 {
-    public class CartsController : Controller
+    public class CompareController : Controller
     {
         private Mikes_BikesContext db = new Mikes_BikesContext();
 
-        // GET: Carts
+        // GET: Compare
         public ActionResult Index()
         {
-            var carts = db.Carts.Include(c => c.Bike);
-            return View(carts.ToList());
+            return View(db.Bikes.ToList());
         }
-
-        public ActionResult Checkout()
+        
+        [HttpPost]
+        public ActionResult CompareView(string compare, bool check = false)
         {
-            var carts = db.Carts.Include(c => c.Bike);
-            return View(carts.ToList());
+            var compares = from bike in db.Bikes select bike;
+
+            if (check)
+            {
+                var compares2 = from bike in db.Bikes where bike.BikeName == compare select bike;
+                return View(compares2);
+            }
+
+            return View(compares);
         }
 
-
-        public ActionResult Payment()
-        {
-            return View();
-        }
-
-        public ActionResult ProcessGood()
-        {
-            return View("ProcessGood");
-        }
-
-        public ActionResult ProcessBad()
-        {
-            return View("ProcessBad");
-        }
-
-        // GET: Carts/Details/5
-        public ActionResult Details(int? id)
+        // GET: Compare/Details/5
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cart cart = db.Carts.Find(id);
-            if (cart == null)
+            Bike bike = db.Bikes.Find(id);
+            if (bike == null)
             {
                 return HttpNotFound();
             }
-            return View(cart);
+            return View(bike);
         }
 
-        // GET: Carts/Create
+        // GET: Compare/Create
         public ActionResult Create()
         {
-            ViewBag.BikeID = new SelectList(db.Bikes, "BikeID", "BikeName");
             return View();
         }
 
-        // POST: Carts/Create
+        // POST: Compare/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CartID,CustomerID,BikeID,Quantity,Price,Customer")] Cart cart)
+        public ActionResult Create([Bind(Include = "BikeID,BikeName,BikeColor,BikeMfctr,BikeType,BikePrice,BikeDescEN,BikeDescFR,BikeSaleAmt,BikeDisplayed,BikeStock,BikeImage")] Bike bike)
         {
             if (ModelState.IsValid)
             {
-                db.Carts.Add(cart);
+                db.Bikes.Add(bike);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.BikeID = new SelectList(db.Bikes, "BikeID", "BikeName", cart.BikeID);
-            return View(cart);
+            return View(bike);
         }
 
-        // GET: Carts/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Compare/Edit/5
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cart cart = db.Carts.Find(id);
-            if (cart == null)
+            Bike bike = db.Bikes.Find(id);
+            if (bike == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.BikeID = new SelectList(db.Bikes, "BikeID", "BikeName", cart.BikeID);
-            return View(cart);
+            return View(bike);
         }
 
-        // POST: Carts/Edit/5
+        // POST: Compare/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CartID,CustomerID,BikeID,Quantity,Price,Customer")] Cart cart)
+        public ActionResult Edit([Bind(Include = "BikeID,BikeName,BikeColor,BikeMfctr,BikeType,BikePrice,BikeDescEN,BikeDescFR,BikeSaleAmt,BikeDisplayed,BikeStock,BikeImage")] Bike bike)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cart).State = EntityState.Modified;
+                db.Entry(bike).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.BikeID = new SelectList(db.Bikes, "BikeID", "BikeName", cart.BikeID);
-            return View(cart);
+            return View(bike);
         }
 
-        // GET: Carts/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Compare/Delete/5
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cart cart = db.Carts.Find(id);
-            if (cart == null)
+            Bike bike = db.Bikes.Find(id);
+            if (bike == null)
             {
                 return HttpNotFound();
             }
-            return View(cart);
+            return View(bike);
         }
 
-        // POST: Carts/Delete/5
+        // POST: Compare/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
-            Cart cart = db.Carts.Find(id);
-            db.Carts.Remove(cart);
+            Bike bike = db.Bikes.Find(id);
+            db.Bikes.Remove(bike);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
